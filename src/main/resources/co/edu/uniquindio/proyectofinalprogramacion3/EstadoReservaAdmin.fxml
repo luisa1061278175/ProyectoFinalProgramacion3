@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.agencia20241.viewController.EstadoReservaAdminViewController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="550.0" prefWidth="700.0" styleClass="color-blanco" stylesheets="@../../../../../../../../../../IdeaProjects/EjemploCrud/src/Estilo/style.css">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estado de las reservas">
+                    <font>
+                        <Font name="Beautiful Lovina Regular" size="68.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="50.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox prefHeight="234.0" prefWidth="701.0">
+                    <children>
+                        <TableView fx:id="tabla" prefHeight="80.0" prefWidth="696.0" stylesheets="@style.css">
+                            <columns>
+                                <TableColumn fx:id="colEstado" prefWidth="99.58209508657455" text="Estado" />
+                                <TableColumn fx:id="colNombreEvento" prefWidth="150.4477310180664" text="Nombre del Evento" />
+                                <TableColumn fx:id="colIdUsuario" prefWidth="127.52241516113281" text="ID Usuario" />
+                                <TableColumn fx:id="colIdReserva" prefWidth="103.1641845703125" text="ID Reserva" />
+                                <TableColumn fx:id="colFechaSolicitud" prefWidth="180.53732299804688" text="Fecha Solicitud" />
+                            </columns>
+                            <HBox.margin>
+                                <Insets left="20.0" right="20.0" top="20.0" />
+                            </HBox.margin>
+                        </TableView>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</HBox>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.agencia20241.viewController.UsuariousuarioViewController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="537.0" prefWidth="806.0" styleClass="color-blanco" stylesheets="@../../../../../../../../../../IdeaProjects/EjemploCrud/src/Estilo/style.css">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Datos de usuario">
+                    <font>
+                        <Font name="Beautiful Lovina Regular" size="70.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="40.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="159.0" prefWidth="246.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                <TextField fx:id="txtNombreUsuario">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Identificación" />
+                                <TextField fx:id="txtIdentificacionUsuario">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="159.0" prefWidth="219.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+                        <TextField fx:id="txtContrasenia">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electrónico" />
+                                <TextField fx:id="txtCorreoUsuario">
+                                    <VBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                     </children></VBox>
+                        <VBox alignment="CENTER" prefHeight="143.0" prefWidth="163.0">
+                            <children>
+                                <Button fx:id="btnModificarUsuario" mnemonicParsing="false" onAction="#actualizarUsuario" prefHeight="26.0" prefWidth="128.0" styleClass="button4" stylesheets="@style.css" text="Modificar">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="btnRegresarUsuario" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" styleClass="button4" stylesheets="@style.css" text="Regresar">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="btnEliminarUsuario" mnemonicParsing="false" onAction="#eliminarUsuario" prefHeight="26.0" prefWidth="128.0" styleClass="button4" stylesheets="@style.css" text="Eliminar">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="214.0" prefWidth="701.0">
+                    <children>
+                        <TableView fx:id="tabla" prefHeight="177.0" prefWidth="660.0" stylesheets="@style.css">
+                            <columns>
+                                <TableColumn fx:id="colNombreUsuario" prefWidth="150" text="Nombre" />
+                                <TableColumn fx:id="colContrasenia" prefWidth="165.49252319335938" text="Contrasenia" />
+                                <TableColumn fx:id="colIdentificacionUsuario" prefWidth="176.23880004882812" text="Identificación" />
+                                <TableColumn fx:id="colCorreoUsuario" prefWidth="169.07464599609375" text="Correo Electrónico" />
+                            </columns>
+                            <HBox.margin>
+                                <Insets left="20.0" right="20.0" top="20.0" />
+                            </HBox.margin>
+                            <styleClass>
+                                <String fx:value="column-header-background" />
+                                <String fx:value="table-view" />
+                            </styleClass>
+                        </TableView>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</HBox>

@@ -1,0 +1,98 @@
+
+.button4 {
+    -fx-text-fill: #000000; /* Color del texto */
+    -fx-border-radius: 4px;
+    -fx-background-color: #F8F3EA;
+    -fx-font: Afterglow;
+    -fx-alignment: center;
+    -fx-font-size: 19px;
+    -fx-border-color: black; /* Color del borde */
+    -fx-border-width: 1px; /* Ancho del borde */
+}
+
+.buttonAzul {
+    -fx-text-fill: #ffffff; /* Color del texto */
+    -fx-border-radius: 4px;
+    -fx-background-color: #5F84A2;
+    -fx-font: Afterglow;
+    -fx-alignment: center;
+    -fx-font-size: 19px;
+    -fx-border-color: black; /* Color del borde */
+    -fx-border-width: 2px; /* Ancho del borde */
+
+}.buttonAzul:hover {
+    -fx-background-color: #fffff5;
+    -fx-text-fill: #000000;
+
+}
+
+}.button4:hover {
+    -fx-background-color: #fffff5;
+    -fx-text-fill: #000000;
+
+}
+
+
+#tabla .column-header {
+    -fx-background-color: #5F84A2; /* Cambia el color de fondo de la cabecera */
+    -fx-text-fill: #ffffff;
+    }
+
+
+.table-view {
+    -fx-background-color: #CADEED;
+}
+
+.colorazul{
+     -fx-background-color: #03A9F4;
+    
+}
+.hbox {
+   
+    -fx-border-width: 1px; /* Ancho del borde del HBox */
+    -fx-padding: 40px; /* Relleno interno del HBox */
+    -fx-spacing: 50px; /* Espacio entre elementos del VBox */
+    -fx-alignment: center; /* Alineación del contenido del HBox */
+    -fx-border-radius: 5px; /* Bordes redondeados */
+}
+
+.text-field3 {
+    -fx-background-color: #FFF0F5; /* Color de fondo */
+    -fx-font-size: 15px;
+    -fx-font: serif;
+    -fx-text-fill: #000000;
+    ; /* Color del texto */
+    -fx-alignment: center; /* Alineación del texto */
+
+
+}
+.color-blanco{
+    -fx-background-color:#ffffff;
+
+}
+
+.vbox {
+    -fx-background-color: white; /* Color de fondo */
+    -fx-alignment: center; /* Alineación del contenido del VBox */
+    -fx-border-radius: 10px; /* Bordes redondeados */
+    -fx-vbox-constraints: "Vgrow:ALWAYS;";
+    
+}
+.vbox2{
+    
+    -fx-vbox-constraints: "Vgrow:ALWAYS;";
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

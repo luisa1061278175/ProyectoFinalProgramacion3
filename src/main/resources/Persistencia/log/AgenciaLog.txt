@@ -1,0 +1,50 @@
+may 21, 2024 11:40:13 A. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 11:48:55 A. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 12:22:02 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 12:30:39 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 1:12:57 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 1:13:17 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se agrego un empleado,2024-05-21
+may 21, 2024 3:05:23 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 3:06:25 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 3:06:45 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se creó un usuario,2024-05-21
+may 21, 2024 3:07:44 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 3:07:57 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se creó un usuario,2024-05-21
+may 21, 2024 3:08:02 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se obtuvieron varios empleados,2024-05-21
+may 21, 2024 3:08:32 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se creó una reserva,2024-05-21
+may 21, 2024 3:08:32 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se eliminó un evento,2024-05-21
+may 21, 2024 3:08:32 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se creó un evento,2024-05-21
+may 21, 2024 3:09:50 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 3:09:55 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se obtuvieron varios empleados,2024-05-21
+may 21, 2024 3:09:55 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se obtuvieron varios empleados,2024-05-21
+may 21, 2024 4:27:43 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 4:27:49 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se obtuvieron varios empleados,2024-05-21
+may 21, 2024 4:33:06 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: inicioSesión,Inicio de sesión,2024-05-21
+may 21, 2024 4:33:15 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se obtuvieron varios empleados,2024-05-21
+may 21, 2024 4:33:33 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se creó una reserva,2024-05-21
+may 21, 2024 4:33:33 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se eliminó un evento,2024-05-21
+may 21, 2024 4:33:33 P. M. co.edu.uniquindio.agencia20241.utils.ArchivoUtil guardarRegistroLog
+INFO: ,Se creó un evento,2024-05-21

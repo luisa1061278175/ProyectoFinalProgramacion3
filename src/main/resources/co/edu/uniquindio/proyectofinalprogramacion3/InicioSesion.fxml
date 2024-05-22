@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import org.w3c.dom.Text?>
+<?import java.awt.Font?>
+<?import java.awt.Insets?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #5F84A2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.agencia20241.viewController.InicioSesionController">
+    <center>
+        <HBox alignment="CENTER" prefHeight="461.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+            <children>
+            <VBox alignment="CENTER" prefHeight="550.0" prefWidth="216.0" style="-fx-background-color: CADEED;" />
+                <VBox prefHeight="400.0" prefWidth="356.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="400.0" prefWidth="375.0" stylesheets="@style.css">
+                            <children>
+                                <Text fill="#141415" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio de sesión">
+                                    <font>
+                                        <Font name="Afterglow Regular" size="30.0" />
+                                    </font>
+                           <VBox.margin>
+                              <Insets bottom="29.0" />
+                           </VBox.margin>
+                                </Text>
+                                <TextField fx:id="txtNombre" maxWidth="-Infinity" prefHeight="49.0" prefWidth="259.0" promptText="Id" styleClass="text-field2" stylesheets="@style.css">
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="txtContraseña" maxWidth="-Infinity" prefHeight="52.0" prefWidth="259.0" promptText="Contraseña" styleClass="text-field2" stylesheets="@style.css">
+                                    <VBox.margin>
+                                        <Insets top="30.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </TextField>
+                                <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#guardar" prefHeight="46.0" prefWidth="117.0" styleClass="buttonAzul" stylesheets="@style.css" text="Aceptar">
+                                    <VBox.margin>
+                                        <Insets top="50.0" />
+                                    </VBox.margin>
+                                </Button>
+                        <Button fx:id="btnRegresar" mnemonicParsing="false" prefHeight="46.0" prefWidth="118.0" styleClass="buttonAzul" stylesheets="@style.css" text="Regresar">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                            </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </VBox.margin>
+                        </VBox>
+                    </children>
+               <HBox.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </HBox.margin>
+                </VBox>
+            <VBox alignment="CENTER" prefHeight="550.0" prefWidth="198.0" style="-fx-background-color: CADEED;" />
+            </children>
+         <BorderPane.margin>
+            <Insets bottom="15.0" top="15.0" />
+         </BorderPane.margin>
+        </HBox>
+    </center>
+</BorderPane>
