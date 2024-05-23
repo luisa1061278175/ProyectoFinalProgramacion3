@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.agencia20241.viewController.PrincipalEmpleadosViewController">
+<AnchorPane prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprogramacion3.viewController.PrincipalEmpleadosViewController">
     <children>
         <TabPane layoutX="8.0" layoutY="8.0" prefHeight="581.0" prefWidth="799.0" style="-fx-background-color: ffffff;" tabClosingPolicy="UNAVAILABLE">
             <tabs>

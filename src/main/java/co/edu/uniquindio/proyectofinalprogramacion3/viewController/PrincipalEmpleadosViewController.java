@@ -1,7 +1,6 @@
-package co.edu.uniquindio.agencia20241.viewController;
+package co.edu.uniquindio.proyectofinalprogramacion3.viewController;
 
-import co.edu.uniquindio.agencia20241.AgenciaAplicacion;
-
+import co.edu.uniquindio.proyectofinalprogramacion3.AgenciaAplicacion;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;

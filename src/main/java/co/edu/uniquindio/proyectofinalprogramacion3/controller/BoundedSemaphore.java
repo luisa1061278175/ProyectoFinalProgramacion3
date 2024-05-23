@@ -1,4 +1,4 @@
-package co.edu.uniquindio.agencia20241.controller;
+package co.edu.uniquindio.proyectofinalprogramacion3.controller;
 
 public class BoundedSemaphore {
 	private int senial = 0;

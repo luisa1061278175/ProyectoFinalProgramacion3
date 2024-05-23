@@ -1,14 +1,18 @@
-package co.edu.uniquindio.agencia20241.mapping.mappers;
+package co.edu.uniquindio.proyectofinalprogramacion3.mapping.mappers;
 
-import co.edu.uniquindio.agencia20241.mapping.dto.EmpleadoDto;
-import co.edu.uniquindio.agencia20241.mapping.dto.EventoDto;
-import co.edu.uniquindio.agencia20241.mapping.dto.ReservaDto;
-import co.edu.uniquindio.agencia20241.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.agencia20241.model.Empleado;
-import co.edu.uniquindio.agencia20241.model.Eventos;
-import co.edu.uniquindio.agencia20241.model.Reserva;
-import co.edu.uniquindio.agencia20241.model.Usuario;
-
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.EventoDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.ReservaDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Reserva;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario;
+import org.mapstruct.IterableMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -17,9 +21,7 @@ public interface AgenciaMapper {
 
     AgenciaMapper INSTANCE = Mappers.getMapper(AgenciaMapper.class);
 
-    //EMPLEADOS
-
-
+    // EMPLEADOS
     @Named("empleadoToEmpleadoDto")
     EmpleadoDto empleadoToEmpleadoDto(Empleado empleado);
 
@@ -32,7 +34,7 @@ public interface AgenciaMapper {
     EmpleadoDto mappingToEmpeladoDto(Empleado empleado);
 
     @Mapping(target = "nombre", source = "empleado.nombre")
-    @IterableMapping(qualifiedByName = "cunetaToCuentaDto")
+    @IterableMapping(qualifiedByName = "empleadoToEmpleadoDto")
     EmpleadoDto clienteToClienteDto(Empleado empleado);
 
     // USUARIOS
@@ -57,22 +59,17 @@ public interface AgenciaMapper {
     List<EventoDto> getEventosDto(List<Eventos> listaEventos);
 
     // RESERVAS
+    @Named("reservaToReservaDto")
+    @Mapping(source = "reserva.usuario", target = "usuario")
+    @Mapping(source = "reserva.evento", target = "evento")
+    @Mapping(target = "fechaSolicitud", expression = "java(reserva.getFechaSolicitud() != null ? reserva.getFechaSolicitud() : java.time.LocalDate.now())") // Asegura que fechaSolicitud no sea null
+    ReservaDto reservaToReservaDto(Reserva reserva);
 
-    @Named("reservasToReservasDto")
-    ReservaDto reservasToReservasDto(Reserva reserva);
+    Reserva reservaDtoToReserva(ReservaDto reservaDto);
 
-    Reserva reservasToReservasDto(ReservaDto reservaDto);
-
-    @IterableMapping(qualifiedByName = "reservasToReservasDto")
+    @IterableMapping(qualifiedByName = "reservaToReservaDto")
     List<ReservaDto> getReservasDto(List<Reserva> listaReservas);
 
-    @Named("mappingToReservasDto")
-    ReservaDto mappingToReservasDto(Reserva reserva);
-
-    @Mapping(target = "id", source = "reserva.id")
-    @IterableMapping(qualifiedByName = "cunetaToCuentaDto")
-    ReservaDto cunetaToCuentaDto(Reserva reserva);
-
-
-
+    @Named("mappingToReservaDto")
+    ReservaDto mappingToReservaDto(Reserva reserva);
 }

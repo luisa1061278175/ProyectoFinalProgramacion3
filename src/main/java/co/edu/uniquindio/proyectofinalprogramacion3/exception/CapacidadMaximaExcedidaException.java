@@ -1,4 +1,4 @@
-package co.edu.uniquindio.agencia20241.exception;
+package co.edu.uniquindio.proyectofinalprogramacion3.exception;
 
 public class CapacidadMaximaExcedidaException extends Exception {
     public CapacidadMaximaExcedidaException(String message) {

@@ -1,8 +1,8 @@
-package co.edu.uniquindio.agencia20241.controller.service;
+package co.edu.uniquindio.proyectofinalprogramacion3.controller.service;
 
-import co.edu.uniquindio.agencia20241.exception.*;
-import co.edu.uniquindio.agencia20241.model.Eventos;
-import co.edu.uniquindio.agencia20241.model.Usuario;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EventoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos;
+
 
 import java.time.LocalDate;
 import java.time.LocalTime;

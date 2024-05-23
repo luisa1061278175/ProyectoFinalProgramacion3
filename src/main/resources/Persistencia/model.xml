@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="21.0.1" class="java.beans.XMLDecoder">
- <object class="co.edu.uniquindio.agencia20241.model.Agencia" id="Agencia0">
+<java version="17.0.10" class="java.beans.XMLDecoder">
+ <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Agencia" id="Agencia0">
   <void property="listaEmpleados">
    <void method="add">
-    <object class="co.edu.uniquindio.agencia20241.model.Empleado">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado">
      <void property="contrasenia">
       <string>123</string>
      </void>
@@ -21,15 +21,53 @@
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado">
+     <void property="contrasenia">
+      <string>sofia</string>
+     </void>
+     <void property="correoElectronico">
+      <string>sofia@</string>
+     </void>
+     <void property="id">
+      <string>1212</string>
+     </void>
+     <void property="nombre">
+      <string>sofia</string>
+     </void>
+     <void property="rolEmpleado">
+      <string>cantante</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado">
+     <void property="contrasenia">
+      <string>0</string>
+     </void>
+     <void property="correoElectronico">
+      <string>@0mariana </string>
+     </void>
+     <void property="id">
+      <string>0</string>
+     </void>
+     <void property="nombre">
+      <string>mariana</string>
+     </void>
+     <void property="rolEmpleado">
+      <string>recepcionista</string>
+     </void>
+    </object>
+   </void>
   </void>
   <void property="listaReservas">
    <void method="add">
-    <object class="co.edu.uniquindio.agencia20241.model.Reserva">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Reserva">
      <void property="estadoReserva">
       <string>Aceptado</string>
      </void>
      <void property="evento">
-      <object class="co.edu.uniquindio.agencia20241.model.Eventos">
+      <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos">
        <void property="nombreEvento">
         <string>Tango</string>
        </void>
@@ -39,7 +77,7 @@
       <string>121</string>
      </void>
      <void property="usuario">
-      <object class="co.edu.uniquindio.agencia20241.model.Usuario">
+      <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario">
        <void property="id">
         <string>10928</string>
        </void>
@@ -48,14 +86,14 @@
     </object>
    </void>
    <void method="add">
-    <object class="co.edu.uniquindio.agencia20241.model.Reserva">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Reserva">
      <void property="estadoReserva">
-      <string>Aceptado1 reservas </string>
+      <string>Aceptado9 reservas </string>
      </void>
      <void property="evento">
-      <object class="co.edu.uniquindio.agencia20241.model.Eventos">
+      <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos">
        <void property="capacidadMaximaEvento">
-        <int>99</int>
+        <int>91</int>
        </void>
        <void property="descripcionEvento">
         <string>Baile</string>
@@ -75,35 +113,35 @@
       </object>
      </void>
      <void property="id">
-      <string>33c72052-06ad-49c2-9de7-0656972a6ab6</string>
+      <string>6127e97e-3b59-4509-85b7-f4407f594298</string>
      </void>
      <void property="usuario">
-      <object class="co.edu.uniquindio.agencia20241.model.Usuario" id="Usuario0">
+      <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario" id="Usuario0">
        <void property="contrasenia">
-        <string>lu</string>
+        <string>11</string>
        </void>
        <void property="correoElectronico">
-        <string>lu</string>
+        <string>Juana@gmail</string>
        </void>
        <void property="id">
-        <string>lu</string>
+        <string>11</string>
        </void>
        <void property="nombre">
-        <string>lu</string>
+        <string>Juana</string>
        </void>
       </object>
      </void>
     </object>
    </void>
    <void method="add">
-    <object class="co.edu.uniquindio.agencia20241.model.Reserva">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Reserva">
      <void property="estadoReserva">
-      <string>Aceptado10 reservas </string>
+      <string>Aceptado43 reservas </string>
      </void>
      <void property="evento">
-      <object class="co.edu.uniquindio.agencia20241.model.Eventos">
+      <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos">
        <void property="capacidadMaximaEvento">
-        <int>90</int>
+        <int>57</int>
        </void>
        <void property="descripcionEvento">
         <string>Comedor</string>
@@ -123,17 +161,30 @@
       </object>
      </void>
      <void property="id">
-      <string>8a6012a9-456f-46ee-aede-e0acc83579a4</string>
+      <string>7541507f-3813-420b-9526-37ddd9de1941</string>
      </void>
      <void property="usuario">
-      <object idref="Usuario0"/>
+      <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario" id="Usuario1">
+       <void property="contrasenia">
+        <string>2</string>
+       </void>
+       <void property="correoElectronico">
+        <string>dillan@12</string>
+       </void>
+       <void property="id">
+        <string>12</string>
+       </void>
+       <void property="nombre">
+        <string>dillan</string>
+       </void>
+      </object>
      </void>
     </object>
    </void>
   </void>
   <void property="listaUsuarios">
    <void method="add">
-    <object class="co.edu.uniquindio.agencia20241.model.Usuario">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario">
      <void property="contrasenia">
       <string>00</string>
      </void>
@@ -149,23 +200,58 @@
     </object>
    </void>
    <void method="add">
-    <object class="co.edu.uniquindio.agencia20241.model.Usuario">
+    <object idref="Usuario0"/>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario">
      <void property="contrasenia">
-      <string>11</string>
+      <string>sara</string>
      </void>
      <void property="correoElectronico">
-      <string>Juana@gmail</string>
+      <string>sara@</string>
      </void>
      <void property="id">
-      <string>11</string>
+      <string>sara</string>
      </void>
      <void property="nombre">
-      <string>Juana</string>
+      <string>000</string>
      </void>
     </object>
    </void>
    <void method="add">
-    <object idref="Usuario0"/>
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario">
+     <void property="contrasenia">
+      <string>hola</string>
+     </void>
+     <void property="correoElectronico">
+      <string>pedro@9</string>
+     </void>
+     <void property="id">
+      <string>pedro</string>
+     </void>
+     <void property="nombre">
+      <string>9</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object idref="Usuario1"/>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario">
+     <void property="contrasenia">
+      <string>8</string>
+     </void>
+     <void property="correoElectronico">
+      <string>fer@8</string>
+     </void>
+     <void property="id">
+      <string>8</string>
+     </void>
+     <void property="nombre">
+      <string>fer</string>
+     </void>
+    </object>
    </void>
   </void>
  </object>

@@ -1,13 +1,13 @@
-package co.edu.uniquindio.agencia20241.viewController;
+package co.edu.uniquindio.proyectofinalprogramacion3.viewController;
 
-import co.edu.uniquindio.agencia20241.controller.ControllerManager;
-import co.edu.uniquindio.agencia20241.controller.ModelFactoryController;
-import co.edu.uniquindio.agencia20241.controller.service.ActionObserver;
-import co.edu.uniquindio.agencia20241.exception.*;
-import co.edu.uniquindio.agencia20241.mapping.dto.EventoDto;
-import co.edu.uniquindio.agencia20241.mapping.dto.ReservaDto;
-import co.edu.uniquindio.agencia20241.mapping.mappers.AgenciaMapper;
-import co.edu.uniquindio.agencia20241.model.Eventos;
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.ControllerManager;
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.ModelFactoryController;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EventoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.ReservaException;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.EventoDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.ReservaDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.mappers.AgenciaMapper;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -20,10 +20,11 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class ReservaViewController extends Application implements ActionObserver {
-    private ControllerManager controllerManager;
+public class ReservaViewController extends Application {
 
     private ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
+    private ControllerManager controllerManager = ControllerManager.getInstance(); // Añadido
+
     public ObservableList<EventoDto> listaEventosDto = FXCollections.observableArrayList();
     private ObservableList<ReservaDto> listaReservasDto = FXCollections.observableArrayList();
     private EventoDto eventoSeleccionado;
@@ -60,8 +61,6 @@ public class ReservaViewController extends Application implements ActionObserver
 
     @FXML
     private void initView() {
-        controllerManager = ControllerManager.getInstance();
-        controllerManager.addObserver(this);
         initDataBinding();
         obtenerEventos();
         tabla.getItems().clear();
@@ -90,48 +89,48 @@ public class ReservaViewController extends Application implements ActionObserver
 
     @FXML
     private void reservar(ActionEvent event) throws ReservaException, EventoException {
-        try {
-            crearReserva();
-        } catch (NoEventoSeleccionadoException | CantidadReservasVaciaException | CantidadReservasInvalidaException |
-                 UsuarioNoAutenticadoException | CapacidadMaximaExcedidaException e) {
-            mostrarMensaje("Error", e.getMessage(), "", Alert.AlertType.ERROR);
-        }
+        crearReserva();
     }
 
-    private void crearReserva() throws ReservaException, EventoException, NoEventoSeleccionadoException,
-            CantidadReservasVaciaException, CantidadReservasInvalidaException, UsuarioNoAutenticadoException,
-            CapacidadMaximaExcedidaException {
-
+    private void crearReserva() throws ReservaException, EventoException {
         if (eventoSeleccionado == null) {
-            throw new NoEventoSeleccionadoException("No se ha seleccionado ningún evento. Por favor, seleccione un evento para reservar.");
+            mostrarMensaje("Error", "No se ha seleccionado ningún evento.", "Por favor, seleccione un evento para reservar.", Alert.AlertType.ERROR);
+            return;
         }
 
         String cantidadReservasStr = txtCantidadReservas.getText();
         if (cantidadReservasStr.isEmpty()) {
-            throw new CantidadReservasVaciaException("Cantidad de reservas vacía. Por favor, ingrese la cantidad de reservas que desea realizar.");
+            mostrarMensaje("Error", "Cantidad de reservas vacía.", "Por favor, ingrese la cantidad de reservas que desea realizar.", Alert.AlertType.ERROR);
+            return;
         }
 
         int cantidadReservas;
         try {
             cantidadReservas = Integer.parseInt(cantidadReservasStr);
         } catch (NumberFormatException e) {
-            throw new CantidadReservasInvalidaException("Cantidad de reservas inválida. Por favor, ingrese un número válido.");
+            mostrarMensaje("Error", "Cantidad de reservas inválida.", "Por favor, ingrese un número válido.", Alert.AlertType.ERROR);
+            return;
         }
 
         if (cantidadReservas <= 0) {
-            throw new CantidadReservasInvalidaException("Cantidad de reservas inválida. La cantidad de reservas debe ser mayor a cero.");
+            mostrarMensaje("Error", "Cantidad de reservas inválida.", "La cantidad de reservas debe ser mayor a cero.", Alert.AlertType.ERROR);
+            return;
         }
 
         if (cantidadReservas > eventoSeleccionado.capacidadMaximaEvento()) {
-            throw new CapacidadMaximaExcedidaException("No hay suficientes reservas disponibles. La cantidad de reservas disponibles es: " + eventoSeleccionado.capacidadMaximaEvento());
+            mostrarMensaje("Error", "No hay suficientes reservas disponibles.", "La cantidad de reservas disponibles es: " + eventoSeleccionado.capacidadMaximaEvento(), Alert.AlertType.ERROR);
+            return;
         }
+
 
         String idReserva = UUID.randomUUID().toString();
         String usuarioId = inicioSesionController.idUsuarioAutenticado;
 
         if (usuarioId == null) {
-            throw new UsuarioNoAutenticadoException("Usuario no autenticado. Por favor, inicie sesión para realizar una reserva.");
+            mostrarMensaje("Error", "Usuario no autenticado.", "Por favor, inicie sesión para realizar una reserva.", Alert.AlertType.ERROR);
+            return;
         }
+
 
         Eventos evento = AgenciaMapper.INSTANCE.eventoDtoToEvento(eventoSeleccionado);
 
@@ -139,44 +138,38 @@ public class ReservaViewController extends Application implements ActionObserver
 
         ReservaDto reservaDto = construirReservaDto(idReserva, usuarioId, evento, cantidadReservas);
 
+
+        controllerManager.addReserva(reservaDto);
+
         listaReservasDto.add(reservaDto);
+
+
         modelFactoryController.eliminarEvento(evento.getNombreEvento());
+
 
         evento.setCapacidadMaximaEvento(evento.getCapacidadMaximaEvento() - cantidadReservas);
         modelFactoryController.crearEvento(evento.getNombreEvento(), evento.getDescripcionEvento(), evento.getFechaEvento(), evento.getHoraEvento(), evento.getUbicacionEvento(), evento.getCapacidadMaximaEvento());
+
 
         actualizarListaEventosConNuevoEvento(evento);
         txtCantidadReservas.clear();
 
         mostrarMensaje("Éxito", "Reserva realizada.", "Su reserva ha sido realizada con éxito.", Alert.AlertType.INFORMATION);
-
-        controllerManager.addReserva(reservaDto);
     }
 
     private void actualizarListaEventosConNuevoEvento(Eventos evento) {
+
         EventoDto nuevoEventoDto = AgenciaMapper.INSTANCE.eventoToEventoDto(evento);
+
         listaEventosDto.removeIf(eventoDto -> eventoDto.nombreEvento().equals(nuevoEventoDto.nombreEvento()));
+
         listaEventosDto.add(nuevoEventoDto);
+
         tabla.refresh();
     }
 
     private String mensajeReserva(int capacidadMaxima, int cantidadReservas) {
-        String estado = "";
-        if (verificarDisponibilidadReservas(cantidadReservas, capacidadMaxima)) {
-            estado = "Aceptado";
-            return estado + cantidadReservas + " reservas " ;
-        }
-        estado = "Rechazado";
-
-        return estado + " :reservas: " + cantidadReservas;
-    }
-
-    public boolean verificarDisponibilidadReservas(int reservas, int maximoReservas) {
-        if (reservas > maximoReservas) {
-            return false;
-        }
-
-        return true;
+        return cantidadReservas == 1 ? "Se ha realizado 1 reserva." : "Se han realizado " + cantidadReservas + " reservas.";
     }
 
     private void mostrarMensaje(String titulo, String encabezado, String contenido, Alert.AlertType tipoAlerta) {
@@ -188,16 +181,13 @@ public class ReservaViewController extends Application implements ActionObserver
     }
 
     private ReservaDto construirReservaDto(String idReserva, String usuarioId, Eventos evento, int cantidadReservas) {
-        return new ReservaDto(idReserva, modelFactoryController.obtenerUsuario(usuarioId), evento, LocalDate.now(), mensajeReserva(eventoSeleccionado.capacidadMaximaEvento(), cantidadReservas));
+        return new ReservaDto(
+                idReserva, modelFactoryController.obtenerUsuario(usuarioId), evento, LocalDate.now(), mensajeReserva(eventoSeleccionado.capacidadMaximaEvento(), cantidadReservas)
+        );
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        // Implementar según sea necesario
-    }
 
-    @Override
-    public void onActionPerformed() {
-        // Implementar si es necesario
     }
 }

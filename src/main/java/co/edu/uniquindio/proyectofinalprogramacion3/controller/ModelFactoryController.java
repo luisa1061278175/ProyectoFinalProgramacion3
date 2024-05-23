@@ -1,15 +1,16 @@
-package co.edu.uniquindio.agencia20241.controller;
+package co.edu.uniquindio.proyectofinalprogramacion3.controller;
 
-import co.edu.uniquindio.agencia20241.controller.service.IAgenciaService;
-import co.edu.uniquindio.agencia20241.exception.EmpleadoException;
-import co.edu.uniquindio.agencia20241.exception.EventoException;
-import co.edu.uniquindio.agencia20241.exception.UsuarioException;
-import co.edu.uniquindio.agencia20241.mapping.dto.ReservaDto;
-import co.edu.uniquindio.agencia20241.mapping.mappers.AgenciaMapper;
-import co.edu.uniquindio.agencia20241.model.*;
-import co.edu.uniquindio.agencia20241.utils.AgenciaUtils;
-import co.edu.uniquindio.agencia20241.utils.ArchivoUtil;
-import co.edu.uniquindio.agencia20241.utils.Persistencia;
+
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.service.IAgenciaService;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EmpleadoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EventoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.UsuarioException;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.ReservaDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.mappers.AgenciaMapper;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.*;
+import co.edu.uniquindio.proyectofinalprogramacion3.utils.AgenciaUtils;
+import co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil;
+import co.edu.uniquindio.proyectofinalprogramacion3.utils.Persistencia;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -41,40 +42,24 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
 
     public ModelFactoryController() {
         cargarResourceXML();
+        System.out.println("Agencia cargada: " + (agencia != null));
 
         if(agencia == null){
             cargarDatosBase();
+            System.out.println("Datos base cargados");
             guardarResourceXML();
         }
         registrarAccionesSistema("Inicio de sesión", 1, "inicioSesión");
     }
 
-    private void cargarDatosDesdeArchivos() {
-        agencia = new Agencia();
-        try {
-            Persistencia.cargarDatosArchivos(agencia);
-        } catch (IOException e) {
-            ArchivoUtil.guardarRegistroLog(e.getMessage(), 4, "Error al cargar datos desde archivos", "ModelFactoryController");
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void salvarDatosPrueba() {
-        try {
-            Persistencia.guardarEmpleados(getAgencia().getListaEmpleados());
-            Persistencia.guardarUsuarios(getAgencia().getListaUsuarios());
-            Persistencia.guardarEvento(getAgencia().getListaEventos());
-
-        } catch (IOException e) {
-            ArchivoUtil.guardarRegistroLog(e.getMessage(), 4, "Error al salvar datos de prueba", "ModelFactoryController");
-            throw new RuntimeException(e);
-        }
-    }
 
 
     private void cargarDatosBase() {
         agencia = AgenciaUtils.inicializarDatos();
+
+
     }
+
 
     public Agencia getAgencia() {
         return agencia;
@@ -85,7 +70,7 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
     }
 
     @Override
-    public Empleado crearEmpleado(String nombre, String id, String correoElectronico, String eventosAsiganados,String contrasenia) throws EmpleadoException {
+    public Empleado crearEmpleado(String nombre, String id, String correoElectronico, String eventosAsiganados, String contrasenia) throws EmpleadoException {
         registrarAccionesSistema("Se agrego un empleado",1,"");
         guardarResourceXML();
         return agencia.crearEmpleado(nombre, id, correoElectronico, eventosAsiganados,contrasenia);
@@ -134,10 +119,12 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
     }
 
 
+
+
     //USUARIO
 
     @Override
-    public Usuario crearUsuario(String nombre, String id, String correoElectronico, List eventosAsiganados,String contrasenia) throws UsuarioException {
+    public Usuario crearUsuario(String nombre, String id, String correoElectronico, List eventosAsiganados, String contrasenia) throws UsuarioException {
         registrarAccionesSistema("Se creó un usuario",1,"");
         guardarResourceXML();
         return agencia.crearUsuario(nombre, id, correoElectronico, eventosAsiganados,contrasenia);
@@ -180,7 +167,7 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
     public Eventos crearEvento(String nombreEvento, String descripcionEvento, String fechaEvento, String horaEvento, String ubicacionEvento, int capacidadMaximaEvento) throws EventoException {
         registrarAccionesSistema("Se creó un evento",1,"");
         guardarResourceXML();
-        return null;
+        return agencia.crearEvento(nombreEvento,descripcionEvento,fechaEvento,horaEvento,ubicacionEvento,capacidadMaximaEvento);
     }
 
     @Override
@@ -230,7 +217,6 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
         return agencia.validarUsuarioProperties(id, contrasena);
     }
 
-
     //RESERVA
     @Override
     public void agregarReserva(String id, Usuario usuario, Eventos evento, LocalDate fechaSolicitud, String estadoReserva) {
@@ -245,30 +231,14 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
         return agencia.obtenerReservas();
     }
 
-    public List<ReservaDto> obtenerReservasDto(){
-        return agencia.obtenerReservasDto();
-    }
-
-
-
-
-
     //METODOS PARA SERIALIZAR
 
-    private void cargarResourceXML() {
+    public void cargarResourceXML() {
         agencia = Persistencia.cargarRecursoAgenciaXML();
     }
 
     private void guardarResourceXML() {
-        Persistencia.guardarRecursoBancoXML(agencia);
-    }
-
-    private void cargarResourceBinario() {
-        agencia = Persistencia.cargarRecursoAgenciaBinario();
-    }
-
-    private void guardarResourceBinario() {
-        Persistencia.guardarRecursoBancoBinario(agencia);
+        Persistencia.guardarRecursoAgenciaXML(agencia);
     }
 
     public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
@@ -284,7 +254,7 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
         Thread hiloActual = Thread.currentThread();
         ocupar();
         if(hiloActual == hilo1GuardarXml){
-            Persistencia.guardarRecursoBancoXML(agencia);
+            Persistencia.guardarRecursoAgenciaXML(agencia);
             liberar();
         }
         if(hiloActual == hilo2GuardarLog){

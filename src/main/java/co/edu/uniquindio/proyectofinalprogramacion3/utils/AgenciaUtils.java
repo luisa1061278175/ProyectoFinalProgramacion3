@@ -1,6 +1,6 @@
-package co.edu.uniquindio.agencia20241.utils;
+package co.edu.uniquindio.proyectofinalprogramacion3.utils;
 
-import co.edu.uniquindio.agencia20241.model.*;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -40,7 +40,7 @@ public class AgenciaUtils {
 
         // Crear un evento
         Eventos evento = new Eventos();
-        evento.setCapacidadMaximaEvento(100);
+        evento.setCapacidadMaximaEvento(10021);
         evento.setDescripcionEvento("Baile");
         evento.setFechaEvento("2023-01-30");
         evento.setHoraEvento("02:43");
@@ -49,12 +49,23 @@ public class AgenciaUtils {
         agencia.obtenerEventos().add(evento);
 
         evento = new Eventos();
-        evento.setCapacidadMaximaEvento(100);
+        evento.setCapacidadMaximaEvento(12100);
         evento.setDescripcionEvento("Comedor");
         evento.setFechaEvento("2023-02-20");
         evento.setHoraEvento("02:43");
         evento.setNombreEvento("Comida");
         evento.setUbicacionEvento("Universidad");
+        agencia.obtenerEventos().add(evento);
+
+
+        evento = new Eventos();
+        evento.setCapacidadMaximaEvento(3100);
+        evento.setDescripcionEvento("Comedor");
+        evento.setFechaEvento("2023-02-20");
+        evento.setHoraEvento("02:43");
+        evento.setNombreEvento("Comida");
+        evento.setUbicacionEvento("Universidad");
+
         agencia.obtenerEventos().add(evento);
 
 
@@ -78,6 +89,7 @@ public class AgenciaUtils {
         // Agregar la reserva a la lista de reservas de la agencia
         agencia.obtenerReservas().add(reserva);
 
+        System.out.println("Datos setiados de la agencia cargardos");
         return agencia;
     }
 

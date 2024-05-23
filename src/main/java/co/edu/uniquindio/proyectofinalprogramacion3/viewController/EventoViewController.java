@@ -1,22 +1,25 @@
-package co.edu.uniquindio.agencia20241.viewController;
+package co.edu.uniquindio.proyectofinalprogramacion3.viewController;
 
-import co.edu.uniquindio.agencia20241.controller.ModelFactoryController;
-import co.edu.uniquindio.agencia20241.exception.EmpleadoException;
-import co.edu.uniquindio.agencia20241.exception.EventoException;
-import co.edu.uniquindio.agencia20241.mapping.dto.EventoDto;
-import co.edu.uniquindio.agencia20241.mapping.mappers.AgenciaMapper;
+
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.ModelFactoryController;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EventoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.EventoDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.mappers.AgenciaMapper;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Agencia;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Reserva;
+import co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeParseException;
+import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class EventoViewController {
 
@@ -35,6 +38,7 @@ public class EventoViewController {
 
     @FXML
     private Button btnRegresar;
+    private Agencia agencia;
 
     @FXML
     private TableColumn<EventoDto, String> colNombreEvento;
@@ -76,20 +80,20 @@ public class EventoViewController {
     private TextField txtCapacidadMaximaEvento;
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         initView();
     }
 
     @FXML
-    private void initView() {
+    private void initView() throws IOException {
+        cargarEventosSerializados();
         initDataBindig();
-        obtenerEventos();
         tabla.getItems().clear();
         tabla.setItems(listaEventosDto);
         listenerSelection();
     }
 
-    private void initDataBindig() {
+    private void initDataBindig() throws IOException {
         colNombreEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().nombreEvento()));
         colDescripcionEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().descripcionEvento()));
         colFechaEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().fechaEvento().toString()));
@@ -97,18 +101,55 @@ public class EventoViewController {
         colUbicacionEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().ubicacionEvento()));
         colCantidadMaximaEvento.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().capacidadMaximaEvento())));
 
+        cargarDatosAgencia();
     }
+    private void cargarDatosAgencia() throws IOException {
+
+        String rutaArchivo = "src/main/resources/Persistencia/model.xml";
+        Agencia agencia = (Agencia) ArchivoUtil.cargarRecursoSerializadoXML(rutaArchivo);
+
+        List<Eventos> listaEventos = agencia.getListaReservas().stream()
+                .map(Reserva::getEvento)
+                .collect(Collectors.toList());
+
+        listaEventosDto.clear();
+        for (Eventos evento : listaEventos) {
+            EventoDto eventoDto = AgenciaMapper.INSTANCE.eventoToEventoDto(evento);
+            listaEventosDto.add(eventoDto);
+        }
+
+
+        tabla.setItems(listaEventosDto);
+        System.out.println("Datos para la tabla eventos: " + listaEventosDto);
+        tabla.refresh();
+    }
+
 
     private void obtenerEventos() {
         listaEventosDto.addAll(AgenciaMapper.INSTANCE.getEventosDto(modelFactoryController.obtenerEventos()));
     }
 
+    private void cargarEventosSerializados() {
+        List<Eventos> eventos = modelFactoryController.obtenerEventos();
+        System.out.println("Eventos obtenidos: " + eventos.size());
+        for (Eventos evento : eventos) {
+            System.out.println("Evento: " + evento.getNombreEvento());
+        }
+        listaEventosDto.clear();
+        listaEventosDto.addAll(AgenciaMapper.INSTANCE.getEventosDto(eventos));
+        for (EventoDto eventoDto : listaEventosDto) {
+            System.out.println("EventoDto: " + eventoDto.nombreEvento());
+        }
+    }
+
+
+
     private void listenerSelection() {
         tabla.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             eventoSeleccionado = newSelection;
-            mostrarInformacionEvento(eventoSeleccionado);
         });
     }
+
 
     private void mostrarInformacionEvento(EventoDto eventoSeleccionado) {
         if (eventoSeleccionado != null) {
@@ -186,12 +227,12 @@ public class EventoViewController {
 
     private void actualizarEvento() throws EventoException {
         boolean eventoActualizado = false;
-        // 1. Capturar los datos
+
         String nombreEventoActual = eventoSeleccionado.nombreEvento();
         EventoDto eventoDto = construirEventoDto();
-        // 2. Verificar el evento seleccionado
+
         if (eventoSeleccionado != null) {
-            // 3. Validar la información
+
             if (datosValidos(eventoDto)) {
                 eventoActualizado = modelFactoryController.actualizarEvento(nombreEventoActual, eventoDto.descripcionEvento(), eventoDto.fechaEvento(), eventoDto.horaEvento(), eventoDto.ubicacionEvento(), eventoDto.capacidadMaximaEvento());
                 if (eventoActualizado) {
@@ -212,17 +253,16 @@ public class EventoViewController {
     private EventoDto construirEventoDto() {
 
 
-            return new EventoDto(
-                    txtNombreEvento.getText(),
-                    txtDescripcionEvento.getText(),
-                    txtFechaEvento.getText(),
-                    txtHoraEvento.getText(),
-                    Integer.parseInt(txtCapacidadMaximaEvento.getText()),
-                    txtUbicacionEvento.getText()
-            );
+        return new EventoDto(
+                txtNombreEvento.getText(),
+                txtDescripcionEvento.getText(),
+                txtFechaEvento.getText(),
+                txtHoraEvento.getText(),
+                Integer.parseInt(txtCapacidadMaximaEvento.getText()),
+                txtUbicacionEvento.getText()
+        );
 
     }
-
 
 
     private void limpiarCamposEvento() {

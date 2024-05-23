@@ -1,4 +1,4 @@
-package co.edu.uniquindio.agencia20241.model;
+package co.edu.uniquindio.proyectofinalprogramacion3.model;
 
 import java.io.Serializable;
 

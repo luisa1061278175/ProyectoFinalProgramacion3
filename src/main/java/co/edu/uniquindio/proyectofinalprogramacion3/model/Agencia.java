@@ -1,12 +1,15 @@
-package co.edu.uniquindio.agencia20241.model;
+package co.edu.uniquindio.proyectofinalprogramacion3.model;
 
-import co.edu.uniquindio.agencia20241.controller.service.IAgenciaService;
-import co.edu.uniquindio.agencia20241.exception.*;
-import co.edu.uniquindio.agencia20241.mapping.dto.ReservaDto;
-import co.edu.uniquindio.agencia20241.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.agencia20241.mapping.mappers.AgenciaMapper;
-import co.edu.uniquindio.agencia20241.utils.ArchivoUtil;
-import co.edu.uniquindio.agencia20241.viewController.UsuariousuarioViewController;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.UsuarioException;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.ReservaDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.mappers.AgenciaMapper;
+
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.service.IAgenciaService;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EmpleadoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.EventoException;
+import co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil;
+import co.edu.uniquindio.proyectofinalprogramacion3.viewController.UsuariousuarioViewController;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -84,6 +87,7 @@ public class Agencia implements IAgenciaService, Serializable {
         boolean empleadoExiste = verificarEmpleadoExistente(id);
         if(empleadoExiste){
             throw new EmpleadoException("El empleado con cedula: "+id+" ya existe");
+
         }else{
             nuevoEmpleado = new Empleado();
             nuevoEmpleado.setNombre(nombre);
@@ -266,7 +270,9 @@ public class Agencia implements IAgenciaService, Serializable {
 
 
 
-@Override
+
+
+    @Override
     public Eventos crearEvento(String nombreEvento, String descripcionEvento, String fechaEvento, String horaEvento, String ubicacionEvento, int capacidadMaximaEvento) throws EventoException {
         Eventos nuevoEvento = null;
         boolean eventoExiste = verificarEventoExistente(nombreEvento);
@@ -333,7 +339,6 @@ public class Agencia implements IAgenciaService, Serializable {
         return listaEventos;
     }
 
-
     @Override
 
     public List<Usuario> obtenerUsuarioId(String id) {
@@ -395,14 +400,7 @@ public void agregarReserva(String id, Usuario usuario, Eventos evento, LocalDate
     }
 
 
-    public List<ReservaDto> obtenerReservasDto() {
-        List<Reserva> reservas = obtenerReservas();
 
-        // Convertir las reservas a ReservaDto utilizando el mapper AgenciaMapper
-        return reservas.stream()
-                .map(AgenciaMapper.INSTANCE::reservasToReservasDto)
-                .collect(Collectors.toList());
-    }
 
 
 }

@@ -1,11 +1,10 @@
-package co.edu.uniquindio.agencia20241.viewController;
+package co.edu.uniquindio.proyectofinalprogramacion3.viewController;
 
-import co.edu.uniquindio.agencia20241.HelloApplication;
-import co.edu.uniquindio.agencia20241.controller.ModelFactoryController;
-import co.edu.uniquindio.agencia20241.mapping.dto.EventoDto;
-import co.edu.uniquindio.agencia20241.mapping.dto.UsuarioDto;
-import co.edu.uniquindio.agencia20241.model.Empleado;
-import co.edu.uniquindio.agencia20241.model.Usuario;
+import co.edu.uniquindio.proyectofinalprogramacion3.HelloApplication;
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.ModelFactoryController;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.EventoDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

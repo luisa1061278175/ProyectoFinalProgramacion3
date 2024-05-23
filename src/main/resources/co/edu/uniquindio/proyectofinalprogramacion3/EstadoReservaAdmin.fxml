@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.agencia20241.viewController.EstadoReservaAdminViewController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprogramacion3.viewController.EstadoReservaAdminViewController">
     <children>
         <VBox alignment="CENTER" prefHeight="550.0" prefWidth="700.0" styleClass="color-blanco" stylesheets="@../../../../../../../../../../IdeaProjects/EjemploCrud/src/Estilo/style.css">
             <children>
@@ -36,6 +37,11 @@
                         </TableView>
                     </children>
                 </HBox>
+            <Button fx:id="btnExportar" mnemonicParsing="false" prefHeight="49.0" prefWidth="147.0" styleClass="button4" stylesheets="@style.css" text="Exportar CSV">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
             </children>
         </VBox>
     </children>

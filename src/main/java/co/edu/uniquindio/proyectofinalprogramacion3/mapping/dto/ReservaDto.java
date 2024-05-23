@@ -1,7 +1,9 @@
-package co.edu.uniquindio.agencia20241.mapping.dto;
+package co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto;
 
-import co.edu.uniquindio.agencia20241.model.Eventos;
-import co.edu.uniquindio.agencia20241.model.Usuario;
+
+
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario;
 
 import java.time.LocalDate;
 

@@ -1,11 +1,12 @@
-package co.edu.uniquindio.agencia20241.viewController;
+package co.edu.uniquindio.proyectofinalprogramacion3.viewController;
 
-import co.edu.uniquindio.agencia20241.HelloApplication;
-import co.edu.uniquindio.agencia20241.controller.ModelFactoryController;
-import co.edu.uniquindio.agencia20241.exception.UsuarioException;
-import co.edu.uniquindio.agencia20241.mapping.dto.EventoDto;
-import co.edu.uniquindio.agencia20241.model.Empleado;
-import co.edu.uniquindio.agencia20241.model.Usuario;
+import co.edu.uniquindio.proyectofinalprogramacion3.HelloApplication;
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.ModelFactoryController;
+import co.edu.uniquindio.proyectofinalprogramacion3.exception.UsuarioException;
+import co.edu.uniquindio.proyectofinalprogramacion3.mapping.dto.EventoDto;
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado;
+
+import co.edu.uniquindio.proyectofinalprogramacion3.model.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,16 +17,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.mail.*;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.swing.*;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class RegistroController {
     private final ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
@@ -73,18 +67,18 @@ public class RegistroController {
         String id = txtId.getText();
 
         // Suponiendo que aquí se debe crear un usuario, llama al método correspondiente
-        modelFactoryController.crearUsuario(id, nombre, correo, null, contrasenia);
+        modelFactoryController.crearUsuario(nombre, id, correo, null, contrasenia);
 
         // Generar un código de verificación
-        String codigo = generarCodigo();
+        //String codigo = generarCodigo();
 
         // Enviar el correo con el código
-        EnvioCorreos envioCorreos = new EnvioCorreos();
-        envioCorreos.setEmailTo(correo);
-        envioCorreos.setSubject("Código de Verificación");
-        envioCorreos.setContent("Su código de verificación es: " + codigo);
-        envioCorreos.createEmail();
-        envioCorreos.sendEmail();
+//        EnvioCorreos envioCorreos = new EnvioCorreos();
+//        envioCorreos.setEmailTo(correo);
+//        envioCorreos.setSubject("Código de Verificación");
+//        envioCorreos.setContent("Su código de verificación es: " + codigo);
+//        envioCorreos.createEmail();
+//        envioCorreos.sendEmail();
 
         cargarInicioSesion(stage);
     }

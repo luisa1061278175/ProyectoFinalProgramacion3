@@ -1,6 +1,6 @@
-package co.edu.uniquindio.agencia20241.model;
+package co.edu.uniquindio.proyectofinalprogramacion3.model;
 
-import co.edu.uniquindio.agencia20241.mapping.dto.ReservaDto;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
