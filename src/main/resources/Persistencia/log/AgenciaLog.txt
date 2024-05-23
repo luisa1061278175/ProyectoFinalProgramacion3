@@ -468,3 +468,51 @@ may. 23, 2024 10:12:54 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils
 INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
 may. 23, 2024 10:12:54 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:25:07 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:25:12 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:25:12 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:38:41 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:38:46 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:38:46 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:42:32 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:42:36 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:42:36 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:45:57 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:46:03 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:46:03 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:52:41 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:52:44 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:52:44 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:54:42 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:54:48 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:54:49 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:55:38 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:55:43 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:55:43 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:58:36 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: inicioSesión,Inicio de sesión,2024-05-23
+may. 23, 2024 10:58:41 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23
+may. 23, 2024 10:58:42 A. M. co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: ,Se obtuvieron varios empleados,2024-05-23

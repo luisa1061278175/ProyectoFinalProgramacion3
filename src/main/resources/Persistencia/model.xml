@@ -68,8 +68,23 @@
      </void>
      <void property="evento">
       <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos">
+       <void property="capacidadMaximaEvento">
+        <int>50</int>
+       </void>
+       <void property="descripcionEvento">
+        <string>Baile de Tango</string>
+       </void>
+       <void property="fechaEvento">
+        <string>2024-05-23</string>
+       </void>
+       <void property="horaEvento">
+        <string>20:00</string>
+       </void>
        <void property="nombreEvento">
         <string>Tango</string>
+       </void>
+       <void property="ubicacionEvento">
+        <string>Salón de Baile Principal</string>
        </void>
       </object>
      </void>
@@ -141,7 +156,7 @@
      <void property="evento">
       <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Eventos">
        <void property="capacidadMaximaEvento">
-        <int>57</int>
+        <int>1000</int>
        </void>
        <void property="descripcionEvento">
         <string>Comedor</string>

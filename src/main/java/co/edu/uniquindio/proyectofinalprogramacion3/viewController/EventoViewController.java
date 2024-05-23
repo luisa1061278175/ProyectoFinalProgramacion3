@@ -81,19 +81,24 @@ public class EventoViewController {
 
     @FXML
     void initialize() throws IOException {
-        initView();
+        cargarEventosSerializados();
+        initDataBinding();
+        tabla.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            eventoSeleccionado = newSelection;
+            mostrarInformacionEvento(eventoSeleccionado);
+        });
     }
 
     @FXML
     private void initView() throws IOException {
         cargarEventosSerializados();
-        initDataBindig();
+        initDataBinding();
         tabla.getItems().clear();
         tabla.setItems(listaEventosDto);
         listenerSelection();
     }
 
-    private void initDataBindig() throws IOException {
+    private void initDataBinding() throws IOException {
         colNombreEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().nombreEvento()));
         colDescripcionEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().descripcionEvento()));
         colFechaEvento.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().fechaEvento().toString()));
@@ -118,27 +123,33 @@ public class EventoViewController {
             listaEventosDto.add(eventoDto);
         }
 
-
         tabla.setItems(listaEventosDto);
         System.out.println("Datos para la tabla eventos: " + listaEventosDto);
         tabla.refresh();
     }
-
-
-    private void obtenerEventos() {
-        listaEventosDto.addAll(AgenciaMapper.INSTANCE.getEventosDto(modelFactoryController.obtenerEventos()));
-    }
+//
+//
+//    private void obtenerEventos() {
+//        listaEventosDto.addAll(AgenciaMapper.INSTANCE.getEventosDto(modelFactoryController.obtenerEventos()));
+//    }
 
     private void cargarEventosSerializados() {
-        List<Eventos> eventos = modelFactoryController.obtenerEventos();
-        System.out.println("Eventos obtenidos: " + eventos.size());
-        for (Eventos evento : eventos) {
-            System.out.println("Evento: " + evento.getNombreEvento());
-        }
-        listaEventosDto.clear();
-        listaEventosDto.addAll(AgenciaMapper.INSTANCE.getEventosDto(eventos));
-        for (EventoDto eventoDto : listaEventosDto) {
-            System.out.println("EventoDto: " + eventoDto.nombreEvento());
+        try {
+            String rutaArchivo = "src/main/resources/Persistencia/model.xml";
+            Agencia agencia = (Agencia) ArchivoUtil.cargarRecursoSerializadoXML(rutaArchivo);
+
+            List<Eventos> listaEventos = agencia.getListaReservas().stream()
+                    .map(Reserva::getEvento)
+                    .collect(Collectors.toList());
+
+            listaEventosDto.clear();
+            for (Eventos evento : listaEventos) {
+                EventoDto eventoDto = AgenciaMapper.INSTANCE.eventoToEventoDto(evento);
+                listaEventosDto.add(eventoDto);
+            }
+            tabla.setItems(listaEventosDto);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
