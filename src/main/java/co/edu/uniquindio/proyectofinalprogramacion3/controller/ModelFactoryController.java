@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyectofinalprogramacion3.controller;
 
 
 import co.edu.uniquindio.proyectofinalprogramacion3.controller.service.IAgenciaService;
+import co.edu.uniquindio.proyectofinalprogramacion3.controller.service.IModelFactoryService;
 import co.edu.uniquindio.proyectofinalprogramacion3.exception.EmpleadoException;
 import co.edu.uniquindio.proyectofinalprogramacion3.exception.EventoException;
 import co.edu.uniquindio.proyectofinalprogramacion3.exception.UsuarioException;
@@ -11,13 +12,20 @@ import co.edu.uniquindio.proyectofinalprogramacion3.model.*;
 import co.edu.uniquindio.proyectofinalprogramacion3.utils.AgenciaUtils;
 import co.edu.uniquindio.proyectofinalprogramacion3.utils.ArchivoUtil;
 import co.edu.uniquindio.proyectofinalprogramacion3.utils.Persistencia;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModelFactoryController implements IAgenciaService, Runnable {
+public class ModelFactoryController implements IAgenciaService, Runnable , IModelFactoryService {
+
+    RabbitFactory rabbitFactory;
+    ConnectionFactory connectionFactory;
     Agencia agencia;
     AgenciaMapper mapper = AgenciaMapper.INSTANCE;
 
@@ -42,6 +50,7 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
 
     public ModelFactoryController() {
         cargarResourceXML();
+        initRabbitConnection();
         System.out.println("Agencia cargada: " + (agencia != null));
 
         if(agencia == null){
@@ -50,6 +59,24 @@ public class ModelFactoryController implements IAgenciaService, Runnable {
             guardarResourceXML();
         }
         registrarAccionesSistema("Inicio de sesión", 1, "inicioSesión");
+    }
+    private void initRabbitConnection() {
+        rabbitFactory = new RabbitFactory();
+        connectionFactory = rabbitFactory.getConnectionFactory();
+        System.out.println("conexion establecidad");
+    }
+    //RABBIT
+
+    @Override
+    public void producirMensaje(String queue, String message) {
+        try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(queue, false, false, false, null);
+            channel.basicPublish("", queue, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

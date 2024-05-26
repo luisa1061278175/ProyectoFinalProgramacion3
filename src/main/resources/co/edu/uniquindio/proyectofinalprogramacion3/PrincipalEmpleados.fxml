@@ -7,14 +7,14 @@
 
 <AnchorPane prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinalprogramacion3.viewController.PrincipalEmpleadosViewController">
     <children>
-        <TabPane layoutX="8.0" layoutY="8.0" prefHeight="581.0" prefWidth="799.0" style="-fx-background-color: ffffff;" tabClosingPolicy="UNAVAILABLE">
+        <TabPane layoutX="8.0" layoutY="8.0" prefHeight="581.0" prefWidth="700.0" style="-fx-background-color: ffffff;" tabClosingPolicy="UNAVAILABLE">
             <tabs>
 
                 <Tab text="Eventos">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="542.0" prefWidth="790.0" style="-fx-background-color: ffffff;">
+                                <SplitPane layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="542.0" prefWidth="700.0" style="-fx-background-color: ffffff;">
                                     <items>
                                         <fx:include source="Evento.fxml" />
                                     </items>
@@ -29,4 +29,3 @@
         </TabPane>
     </children>
 </AnchorPane>
-

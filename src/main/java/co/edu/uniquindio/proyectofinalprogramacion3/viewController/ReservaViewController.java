@@ -20,10 +20,12 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import static co.edu.uniquindio.proyectofinalprogramacion3.utils.Constantes.QUEUE_NUEVA_PUBLICACION;
+
 public class ReservaViewController extends Application {
 
     private ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
-    private ControllerManager controllerManager = ControllerManager.getInstance(); // Añadido
+    private ControllerManager controllerManager = ControllerManager.getInstance();
 
     public ObservableList<EventoDto> listaEventosDto = FXCollections.observableArrayList();
     private ObservableList<ReservaDto> listaReservasDto = FXCollections.observableArrayList();
@@ -155,6 +157,11 @@ public class ReservaViewController extends Application {
         txtCantidadReservas.clear();
 
         mostrarMensaje("Éxito", "Reserva realizada.", "Su reserva ha sido realizada con éxito.", Alert.AlertType.INFORMATION);
+        ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
+        String mensaje = "";
+        mensaje += "100;";
+        mensaje += "LUISA";
+        modelFactoryController.producirMensaje(QUEUE_NUEVA_PUBLICACION, mensaje);
     }
 
     private void actualizarListaEventosConNuevoEvento(Eventos evento) {

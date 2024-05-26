@@ -14,29 +14,10 @@
       <string>123</string>
      </void>
      <void property="nombre">
-      <string>juan</string>
+      <string>juan34</string>
      </void>
      <void property="rolEmpleado">
       <string>Cocina</string>
-     </void>
-    </object>
-   </void>
-   <void method="add">
-    <object class="co.edu.uniquindio.proyectofinalprogramacion3.model.Empleado">
-     <void property="contrasenia">
-      <string>sofia</string>
-     </void>
-     <void property="correoElectronico">
-      <string>sofia@</string>
-     </void>
-     <void property="id">
-      <string>1212</string>
-     </void>
-     <void property="nombre">
-      <string>sofia</string>
-     </void>
-     <void property="rolEmpleado">
-      <string>cantante</string>
      </void>
     </object>
    </void>
